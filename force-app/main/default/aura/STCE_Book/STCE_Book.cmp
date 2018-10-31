@@ -2,10 +2,10 @@
     <aura:attribute access="public" name="book" type="STCE_Library.Book" />
 
     <lightning:card>
-        <article class="slds-card">
+        <article class="slds-card slds-text-align_left">
             <div class="slds-card__header slds-grid">
                 <header class="slds-media slds-media_center slds-has-flexi-truncate">
-                    <h1 class="book_title">{!v.book.title}</h1>
+                    <h1 class="slds-text-heading_medium">{!v.book.title}</h1>
                 </header>
             </div>
 
@@ -13,10 +13,10 @@
                 <img src="{!v.book.cover.medium}" />
             </div>
 
-            <footer class="slds-card__footer">
-                <p class="book_byline">{!v.book.by_statement}</p>
+            <footer class="slds-card__footer slds-text-align_left">
+                <p class="slds-text-body_regular">{!v.book.by_statement}</p>
                 <!-- {!v.book.identifiers.openlibrary[0]} -->
-                <lightning:button variant="base" label="Buy!" />
+                <lightning:button label="Buy!" />
             </footer>
         </article>
     </lightning:card>

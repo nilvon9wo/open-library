@@ -4,10 +4,16 @@
     />
     <aura:attribute name="booklist" type="STCE_Library.Book[]" />
 
-    <h1>Bookstore</h1>
-    <lightning:input aura:id="enter-search" name="enter-search" label="Search" type="search" />
-    <lightning:button variant="brand" label="Search" title="Search" onclick="{! c.doSearch }" />
-    <br clear="all"/>
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_medium">Bookstore</h1>
 
-    <c:STCE_Booklist booklist="{!v.booklist}"/>
+        <lightning:input class="search_textbox" aura:id="enter-search" name="enter-search" label="Search" type="search"  />
+        <lightning:button class="search_button" variant="brand" label="Search" title="Search"  />
+    </div>
+
+    <br clear="all" />
+    <div class="slds-m-around_medium">
+        <c:STCE_Booklist booklist="{!v.booklist}"/>
+    </div>
+
 </aura:component>

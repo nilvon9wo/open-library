@@ -1,0 +1,14 @@
+.THIS .search_textbox {
+    display: block;
+    float: left;
+    height: 32px;
+    width: 90%;
+    margin-bottom: 15px;
+}
+.THIS .search_button {
+    display: block;
+    position: relative;
+    top: 23px;
+    left: 10px;
+    height: 32px;
+}

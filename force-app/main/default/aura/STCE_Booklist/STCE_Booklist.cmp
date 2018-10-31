@@ -1,9 +1,13 @@
 <aura:component>
     <aura:attribute access="public" name="booklist" type="STCE_Library.Book[]" />
 
-    <aura:iteration items="{!v.booklist}" var="book" >
-        <div class="slds-float_right book_horizontal-listing">
-            <c:STCE_Book book="{!book}"/>
-        </div>
-    </aura:iteration>
+    <div class="slds-grid slds-gutters slds-wrap">
+        <aura:iteration items="{!v.booklist}" var="book" >
+            <div class="slds-col slds-size_1-of-3">
+                <span>
+                    <c:STCE_Book book="{!book}"/>
+                </span>
+            </div>
+        </aura:iteration>
+    </div>
 </aura:component>
