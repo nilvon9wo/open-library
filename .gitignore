@@ -1,4 +1,7 @@
 /.idea
+/.sfdx
+/config
 /projectFilesBackup
 candidate-exercise-brian.iml
 OfflineSymbolTable.zip
+package.xml
