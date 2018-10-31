@@ -1,4 +1,10 @@
 <aura:component>
     <aura:attribute name="book" type="Library.Book" />
-    {!v.book}
+    <lightning:card>
+        {!v.book.title}
+        <img src="{!v.book.cover.medium}" />
+        by {!v.book.authors[0].name}
+        {!v.book.identifiers.openlibrary[0]}
+        <lightning:button variant="base" label="Buy!" />
+    </lightning:card>
 </aura:component>
