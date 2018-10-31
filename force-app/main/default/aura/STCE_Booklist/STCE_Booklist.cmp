@@ -1,0 +1,10 @@
+<aura:component controller="STCE_BooklistAuraCtrl">
+    <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
+                  afterScriptsLoaded="{!c.doInit}"
+    />
+    <aura:attribute name="booklist" type="Library.Book[]" />
+
+    <aura:iteration items="{!v.booklist}" var="book" >
+        {!book}
+    </aura:iteration>
+</aura:component>
