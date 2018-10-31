@@ -1,5 +1,5 @@
 <aura:component>
-    <aura:attribute name="book" type="STCE_Library.Book" />
+    <aura:attribute access="public" name="book" type="STCE_Library.Book" />
 
     <lightning:card>
         <article class="slds-card">

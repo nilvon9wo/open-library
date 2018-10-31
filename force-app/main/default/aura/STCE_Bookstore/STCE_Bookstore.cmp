@@ -1,8 +1,13 @@
-<aura:component description="STCE_Bookstore">
+<aura:component  controller="STCE_BooklistAuraCtrl">
+    <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
+                  afterScriptsLoaded="{!c.doInit}"
+    />
+    <aura:attribute name="booklist" type="STCE_Library.Book[]" />
+
     <h1>Bookstore</h1>
     <lightning:input aura:id="enter-search" name="enter-search" label="Search" type="search" />
     <lightning:button variant="brand" label="Search" title="Search" onclick="{! c.doSearch }" />
     <br clear="all"/>
 
-    <c:STCE_Booklist/>
+    <c:STCE_Booklist booklist="{!v.booklist}"/>
 </aura:component>
