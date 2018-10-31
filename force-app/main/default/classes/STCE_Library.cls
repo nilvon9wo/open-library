@@ -25,9 +25,9 @@ public class STCE_Library {
         public List<Subject_places> subjects;
         public List<Subject_places> subject_people;
         public String key;
-        @AuraEnabled public List<Subject_places> authors;
+        public List<Subject_places> authors;
         public String publish_date;
-        public String by_statement;
+        @AuraEnabled public String by_statement;
         public List<Publishers> publish_places;
         public List<Subject_places> subject_times;
         public List<Excerpts> excerpts;
@@ -92,5 +92,4 @@ public class STCE_Library {
         public String url;
         @AuraEnabled public String name;
     }
-
 }

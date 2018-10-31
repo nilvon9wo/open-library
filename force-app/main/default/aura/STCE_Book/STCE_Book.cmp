@@ -1,10 +1,23 @@
 <aura:component>
-    <aura:attribute name="book" type="Library.Book" />
+    <aura:attribute name="book" type="STCE_Library.Book" />
+
     <lightning:card>
-        {!v.book.title}
-        <img src="{!v.book.cover.medium}" />
-        by {!v.book.authors[0].name}
-        {!v.book.identifiers.openlibrary[0]}
-        <lightning:button variant="base" label="Buy!" />
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <h1 class="book_title">{!v.book.title}</h1>
+                </header>
+            </div>
+
+            <div class="slds-card__body slds-card__body_inner">
+                <img src="{!v.book.cover.medium}" />
+            </div>
+
+            <footer class="slds-card__footer">
+                <p class="book_byline">{!v.book.by_statement}</p>
+                <!-- {!v.book.identifiers.openlibrary[0]} -->
+                <lightning:button variant="base" label="Buy!" />
+            </footer>
+        </article>
     </lightning:card>
 </aura:component>
