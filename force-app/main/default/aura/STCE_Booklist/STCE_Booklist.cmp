@@ -2,9 +2,12 @@
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
                   afterScriptsLoaded="{!c.doInit}"
     />
-    <aura:attribute name="booklist" type="Library.Book[]" />
+    <aura:attribute name="booklist" type="STCE_Library.Book[]" />
 
     <aura:iteration items="{!v.booklist}" var="book" >
-        <c:STCE_Book book="{!book}" />
+        <div class="slds-float_right book_horizontal-listing">
+            <c:STCE_Book book="{!book}"/>
+        </div>
+
     </aura:iteration>
 </aura:component>
