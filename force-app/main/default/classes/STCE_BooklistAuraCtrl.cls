@@ -10,11 +10,11 @@ public class STCE_BooklistAuraCtrl {
     }
 
     @AuraEnabled
-    public static String getBooks() {
+    public static List<STCE_Library.Book> getBooks() {
         return (new STCE_BooklistAuraCtrl()).getBookList();
     }
 
-    private String getBookList() {
+    private List<STCE_Library.Book> getBookList() {
         return this.openLibraryProxy.getBooks();
     }
 }

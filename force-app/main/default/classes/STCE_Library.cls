@@ -1,4 +1,4 @@
-public class Library {
+public class STCE_Library {
 
     public class Table_of_contents {
         public String title;
@@ -10,22 +10,22 @@ public class Library {
     public class Book {
         public List<Publishers> publishers;
         public String pagination;
-        public Identifiers identifiers;
+        @AuraEnabled public Identifiers identifiers;
         public Classifications classifications;
         public List<Table_of_contents> table_of_contents;
         public String subtitle;
         public String weight;
         public List<Links> links;
-        public String title;
+        @AuraEnabled public String title;
         public String url;
         public String notes;
         public Integer number_of_pages;
-        public Cover cover;
+        @AuraEnabled public Cover cover;
         public List<Subject_places> subject_places;
         public List<Subject_places> subjects;
         public List<Subject_places> subject_people;
         public String key;
-        public List<Subject_places> authors;
+        @AuraEnabled public List<Subject_places> authors;
         public String publish_date;
         public String by_statement;
         public List<Publishers> publish_places;
@@ -41,7 +41,7 @@ public class Library {
         public List<String> lccn;
         public List<String> librarything;
         public List<String> oclc;
-        public List<String> openlibrary;
+        @AuraEnabled public List<String> openlibrary;
     }
 
     public class Ebooks {
@@ -81,7 +81,7 @@ public class Library {
     public class Cover {
         public String small;
         public String large;
-        public String medium;
+        @AuraEnabled public String medium;
     }
 
     public class Links {
@@ -90,7 +90,7 @@ public class Library {
     }
     public class Subject_places {
         public String url;
-        public String name;
+        @AuraEnabled public String name;
     }
 
 }

@@ -13,15 +13,15 @@ public class STCE_OpenLibraryProxy {
         return INSTANCE;
     }
 
-    public String getBooks() {
+    public List<STCE_Library.Book> getBooks() {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(ENDPOINT);
         req.setMethod('GET');
 
         String jsonResp = new Http().send(req).getBody();
-        Map<String, Library.Book> books
-                = (Map<String, Library.Book>)JSON.deserializeStrict(jsonResp, Map<String, Library.Book>.class);
+        Map<String, STCE_Library.Book> books
+                = (Map<String, STCE_Library.Book>)JSON.deserializeStrict(jsonResp, Map<String, STCE_Library.Book>.class);
 
-        return JSON.serialize(books.values());
+        return books.values();
     }
 }
