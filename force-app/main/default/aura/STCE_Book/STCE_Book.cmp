@@ -1,0 +1,4 @@
+<aura:component>
+    <aura:attribute name="book" type="Library.Book" />
+    {!v.book}
+</aura:component>

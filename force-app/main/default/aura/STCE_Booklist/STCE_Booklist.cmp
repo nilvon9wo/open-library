@@ -5,6 +5,6 @@
     <aura:attribute name="booklist" type="Library.Book[]" />
 
     <aura:iteration items="{!v.booklist}" var="book" >
-        {!book}
+        <c:STCE_Book book="{!book}" />
     </aura:iteration>
 </aura:component>
