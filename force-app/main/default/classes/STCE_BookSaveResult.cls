@@ -12,9 +12,4 @@ public class STCE_BookSaveResult {
             }
         }
     }
-
-    public STCE_BookSaveResult(Book__c book, Exception ex) {
-        this.book = book;
-        this.errors = new List<String>{ex.getMessage()};
-    }
 }

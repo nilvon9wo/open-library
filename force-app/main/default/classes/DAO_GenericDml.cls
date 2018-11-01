@@ -11,7 +11,10 @@ public class DAO_GenericDml {
         return INSTANCE;
     }
 
-    public List<Database.SaveResult> doInsert(List<SObject> sObjectList) {
-        return Database.insert(sObjectList);
+    public static final Boolean ALL_OR_NONE = true;
+    public static final Boolean NOT_ALL_OR_NONE = false;
+
+    public List<Database.SaveResult> doInsert(List<SObject> sObjectList, Boolean isAllOrNone) {
+        return Database.insert(sObjectList, isAllOrNone);
     }
 }

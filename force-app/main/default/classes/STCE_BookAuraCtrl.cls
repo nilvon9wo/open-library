@@ -31,13 +31,9 @@ public class STCE_BookAuraCtrl {
         // Currently any user can save any book, any number of times.
         // This is inefficient and could lead to data integrity issues.
 
-        Database.SaveResult saveResult;
-        try {
-            saveResult = this.genericDml.doInsert(new List<Book__c>{book})[0];
-        } catch (DmlException ex) {
-            return new STCE_BookSaveResult(book, ex);
-        }
-
-        return new STCE_BookSaveResult(book, saveResult);
+        return new STCE_BookSaveResult(
+                book,
+                this.genericDml.doInsert(new List<Book__c>{book}, DAO_GenericDml.NOT_ALL_OR_NONE)[0]
+        );
     }
 }
