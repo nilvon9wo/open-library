@@ -1,6 +1,6 @@
 public class STCE_BookSaveResult {
-    @AuraEnabled public Book__c book;
-    @AuraEnabled public List<String> errors;
+    @AuraEnabled public Book__c book {get; private set;}
+    @AuraEnabled public List<String> errors {get; private set;}
 
     public STCE_BookSaveResult(Book__c book, F45_DML_SaveResultWrapper saveResult) {
         this.book = book;
