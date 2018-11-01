@@ -2,18 +2,18 @@
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
                   afterScriptsLoaded="{!c.doInit}"
     />
+    <aura:attribute name="query" type="String" />
     <aura:attribute name="booklist" type="STCE_Library.Book[]" />
 
     <div class="slds-m-around_medium">
         <h1 class="slds-text-heading_medium">Bookstore</h1>
 
-        <lightning:input class="search_textbox" aura:id="enter-search" name="enter-search" label="Search" type="search"  />
-        <lightning:button class="search_button" variant="brand" label="Search" title="Search"  />
+        <lightning:input class="search_textbox" label="Search" type="search" value="{!v.query}" onchange="{!c.doSearch}" />
+        <lightning:button class="search_button" variant="brand" label="Search" title="Search" onclick="{!c.doSearch}"  />
     </div>
 
     <br clear="all" />
     <div class="slds-m-around_medium">
         <c:STCE_Booklist booklist="{!v.booklist}"/>
     </div>
-
 </aura:component>
