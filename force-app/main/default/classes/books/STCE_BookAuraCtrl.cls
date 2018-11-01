@@ -1,10 +1,10 @@
 public class STCE_BookAuraCtrl {
-    private DAO_GenericDml genericDml;
+    private F45_DML_GenericDml genericDml;
     private STCE_BookFinder bookFinder;
     private STCE_OpenLibraryProxy openLibraryProxy;
 
     private STCE_BookAuraCtrl(
-            DAO_GenericDml genericDml,
+            F45_DML_GenericDml genericDml,
             STCE_BookFinder bookFinder,
             STCE_OpenLibraryProxy openLibraryProxy
     ) {
@@ -14,7 +14,7 @@ public class STCE_BookAuraCtrl {
     }
 
     public STCE_BookAuraCtrl(){
-        this(DAO_GenericDml.getInstance(), STCE_BookFinder.getInstance(), STCE_OpenLibraryProxy.getInstance());
+        this(F45_DML_GenericDml.getInstance(), STCE_BookFinder.getInstance(), STCE_OpenLibraryProxy.getInstance());
     }
 
     @AuraEnabled
@@ -33,7 +33,8 @@ public class STCE_BookAuraCtrl {
 
         return new STCE_BookSaveResult(
                 book,
-                this.genericDml.doInsert(new List<Book__c>{book}, DAO_GenericDml.NOT_ALL_OR_NONE)[0]
+                this.genericDml.doInsert(new List<Book__c>{book}, F45_DML_GenericDml.NOT_ALL_OR_NONE)
+                        .getResultWrapperList()[0]
         );
     }
 }

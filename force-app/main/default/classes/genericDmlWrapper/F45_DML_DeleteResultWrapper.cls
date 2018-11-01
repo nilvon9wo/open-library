@@ -1,0 +1,27 @@
+public class F45_DML_DeleteResultWrapper implements F45_DML_ResultWrapperIntf {
+	@TestVisible private Id id;
+	@TestVisible private Boolean wasSuccess;
+	@TestVisible private List<F45_DML_DatabaseErrorWrapper> errorList; 
+	
+    public F45_DML_DeleteResultWrapper(Database.DeleteResult result) {
+    	this.id = result.id;
+    	this.wasSuccess = result.isSuccess();
+    	this.errorList = (new F45_DML_DatabaseErrorHelper()).convert(result.errors);
+    } 
+    
+    @TestVisible
+    private F45_DML_DeleteResultWrapper() {
+    } 
+    
+    public Id getId() {
+    	return this.id;
+	}
+	    
+    public Boolean isSuccess() {
+    	return this.wasSuccess;
+	}
+	
+	public List<F45_DML_DatabaseErrorWrapper> getErrorList() {
+		return this.errorList;
+	}
+}
