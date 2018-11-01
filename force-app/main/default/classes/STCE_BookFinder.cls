@@ -23,16 +23,16 @@ public class STCE_BookFinder {
 
     private Boolean isMatching(STCE_Library.Book book, String searchTerm) {
         String lowercasesearchTerm = searchTerm.toLowerCase();
-        return this.isMatchingTitle(book, lowercasesearchTerm)
-                || this.isMatchingAuthor(book, lowercasesearchTerm)
-                || this.isMatchingId(book, lowercasesearchTerm);
+        return this.hasMatchingTitle(book, lowercasesearchTerm)
+                || this.hasMatchingAuthor(book, lowercasesearchTerm)
+                || this.hasMatchingId(book, lowercasesearchTerm);
     }
 
-    private Boolean isMatchingTitle(STCE_Library.Book book, String searchTerm) {
+    private Boolean hasMatchingTitle(STCE_Library.Book book, String searchTerm) {
         return this.nonBlankContains(book.title, searchTerm);
     }
 
-    private Boolean isMatchingAuthor(STCE_Library.Book book, String searchTerm) {
+    private Boolean hasMatchingAuthor(STCE_Library.Book book, String searchTerm) {
         return this.nonBlankContains(book.by_statement, searchTerm)
                 || this.hasMatchingAuthor(book.authors, searchTerm);
     }
@@ -50,7 +50,7 @@ public class STCE_BookFinder {
         return false;
     }
 
-    private Boolean isMatchingId(STCE_Library.Book book, String searchTerm) {
+    private Boolean hasMatchingId(STCE_Library.Book book, String searchTerm) {
         if (book.identifiers == null) {
             return false;
         }
