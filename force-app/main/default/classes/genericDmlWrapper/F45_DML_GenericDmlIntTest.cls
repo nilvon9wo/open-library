@@ -145,7 +145,40 @@ public class F45_DML_GenericDmlIntTest {
 		
 		// Assert
 		System.assert(exceptionCaught);
-	}  	
+	}
+
+	@IsTest public static void testDoUpsertShouldReturnNullWhenProvidedEmptyList() {
+		// Arrange
+		Boolean isAllOrNone = true;
+
+		// Act
+		F45_DML_UpsertResultListWrapper resultListWrapper;
+		Test.startTest();
+		System.runAs(TEST_RUNNER) {
+			resultListWrapper = DML_HANDLER.doUpsert(new List<Account>{}, isAllOrNone);
+		}
+		Test.stopTest();
+
+		// Assert
+		System.assertEquals(null, resultListWrapper);
+	}
+
+	@IsTest public static void testDoUpsertShouldReturnNullWhenProvidedWithNull() {
+		// Arrange
+		Boolean isAllOrNone = true;
+
+		// Act
+		F45_DML_UpsertResultListWrapper resultListWrapper;
+		Test.startTest();
+		System.runAs(TEST_RUNNER) {
+			resultListWrapper = DML_HANDLER.doUpsert(null, isAllOrNone);
+		}
+		Test.stopTest();
+
+		// Assert
+		System.assertEquals(null, resultListWrapper);
+	}
+
 
 	// Delete Tests -------------------------------------------------------------------------------------------------
 	// Note: I would have prefered to test a failing operation, but Database.delete only handles DMLExceptions.
