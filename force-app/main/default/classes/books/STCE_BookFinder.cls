@@ -11,7 +11,7 @@ public class STCE_BookFinder {
         return INSTANCE;
     }
 
-    private static final String OPEN_LIBRARY_ID_PREFIX = 'OLID:';
+    @TestVisible private static final String OPEN_LIBRARY_ID_PREFIX = 'OLID:';
 
     // public extractor methods ------------------------------------------------------------
 
@@ -34,11 +34,17 @@ public class STCE_BookFinder {
     @TestVisible
     public STCE_Library.Book extractMatchesById(
             Map<String, STCE_Library.Book> booksByPrefixedOlidMap, String openLibraryId
-        ) {
-            String prefixedOlid = OPEN_LIBRARY_ID_PREFIX + openLibraryId;
-            return booksByPrefixedOlidMap.keySet().contains(prefixedOlid)
-                    ? booksByPrefixedOlidMap.get(prefixedOlid)
-                    : this.extractMatchesById(booksByPrefixedOlidMap.values(), openLibraryId)[0];
+    ) {
+        String prefixedOlid = OPEN_LIBRARY_ID_PREFIX + openLibraryId;
+
+        if (booksByPrefixedOlidMap.keySet().contains(prefixedOlid)) {
+            return booksByPrefixedOlidMap.get(prefixedOlid);
+        }
+
+        List<STCE_Library.Book> bookList = this.extractMatchesById(booksByPrefixedOlidMap.values(), openLibraryId);
+        return (!bookList.isEmpty())
+                ? bookList[0]
+                : null;
     }
 
     // I've considered using Interpretter Pattern to reduce code redundancy (see extractMatches).
@@ -83,7 +89,7 @@ public class STCE_BookFinder {
             return false;
         }
 
-        for(STCE_Library.Subject_places author : authorList) {
+        for (STCE_Library.Subject_places author : authorList) {
             if (this.nonBlankCaseInsensitiveContains(author.name, lowerCaseSearchTerm)) {
                 return true;
             }
@@ -106,7 +112,7 @@ public class STCE_BookFinder {
             return false;
         }
 
-        for(String openLibraryId : openLibraryIdList) {
+        for (String openLibraryId : openLibraryIdList) {
             if (this.nonBlankCaseInsensitiveContains(openLibraryId, lowerCaseSearchTerm)) {
                 return true;
             }
