@@ -27,14 +27,14 @@ public class F45_DML_UpsertResultWrapper implements F45_DML_ResultWrapperIntf {
     	return this.wasSuccess;
 	}
 
-	@TestVisible public List<F45_DML_DatabaseErrorWrapper> errorList {
+	@TestVisible private List<F45_DML_DatabaseErrorWrapper> errorList {
 		get {
 			if (this.errorList == null) {
 				this.errorList = (new F45_DML_DatabaseErrorRewrapper()).convert(result.errors);
 			}
 			return this.errorList;
 		}
-		private set;
+		set;
 	}
 
 	public List<F45_DML_DatabaseErrorWrapper> getErrorList() {
