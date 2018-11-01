@@ -12,20 +12,32 @@ public class STCE_BookFinder {
     }
 
     public List<STCE_Library.Book> extractMatches(List<STCE_Library.Book> bookList, String searchTerm) {
+        String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
         for (STCE_Library.Book book : bookList) {
-            if (this.isMatching(book, searchTerm)) {
+            if (this.hasMatchingAnything(book, lowerCaseSearchTerm)) {
                 matchingBookList.add(book);
             }
         }
         return matchingBookList;
     }
 
-    private Boolean isMatching(STCE_Library.Book book, String searchTerm) {
-        String lowercasesearchTerm = searchTerm.toLowerCase();
-        return this.hasMatchingTitle(book, lowercasesearchTerm)
-                || this.hasMatchingAuthor(book, lowercasesearchTerm)
-                || this.hasMatchingId(book, lowercasesearchTerm);
+    // TODO: Consider using Interpretter Pattern to reduce code redundancy.
+    public List<STCE_Library.Book> extractMatchesById(List<STCE_Library.Book> bookList, String searchTerm) {
+        String lowerCaseSearchTerm = searchTerm.toLowerCase();
+        List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
+        for (STCE_Library.Book book : bookList) {
+            if (this.hasMatchingId(book, lowerCaseSearchTerm)) {
+                matchingBookList.add(book);
+            }
+        }
+        return matchingBookList;
+    }
+
+    private Boolean hasMatchingAnything(STCE_Library.Book book, String searchTerm) {
+        return this.hasMatchingTitle(book, searchTerm)
+                || this.hasMatchingAuthor(book, searchTerm)
+                || this.hasMatchingId(book, searchTerm);
     }
 
     private Boolean hasMatchingTitle(STCE_Library.Book book, String searchTerm) {

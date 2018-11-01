@@ -1,21 +1,32 @@
 public class STCE_BookAuraCtrl {
     private DAO_GenericDml genericDml;
+    private STCE_BookFinder bookFinder;
+    private STCE_OpenLibraryProxy openLibraryProxy;
 
-    private STCE_BookAuraCtrl(DAO_GenericDml genericDml) {
+    private STCE_BookAuraCtrl(
+            DAO_GenericDml genericDml,
+            STCE_BookFinder bookFinder,
+            STCE_OpenLibraryProxy openLibraryProxy
+    ) {
         this.genericDml = genericDml;
+        this.bookFinder = bookFinder;
+        this.openLibraryProxy = openLibraryProxy;
     }
 
     public STCE_BookAuraCtrl(){
-        this(DAO_GenericDml.getInstance());
+        this(DAO_GenericDml.getInstance(), STCE_BookFinder.getInstance(), STCE_OpenLibraryProxy.getInstance());
     }
 
     @AuraEnabled
-    public static STCE_BookSaveResult save(STCE_Library.Book book) {
-        return (new STCE_BookAuraCtrl()).saveBook(book);
+    public static STCE_BookSaveResult saveBook(String openLibraryId) {
+        return (new STCE_BookAuraCtrl()).save(openLibraryId);
     }
 
-    private STCE_BookSaveResult saveBook(STCE_Library.Book libraryBook) {
-        Book__c book = libraryBook.toSObject();
+    private STCE_BookSaveResult save(String openLibraryId) {
+        Book__c book = this.bookFinder
+                .extractMatchesById(this.openLibraryProxy.getBooks(), openLibraryId)[0]
+                .toSObject();
+
         // TODO: Validate book exists in library and all data is correct.
         // An alternative solution would be just to return an identifier and then [attempt to] find it.
         // But if/as we are trusting the client, it is more efficient to just let the component return the book.
