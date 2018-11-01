@@ -27,10 +27,6 @@ public class STCE_BookAuraCtrl {
                 .extractMatchesById(this.openLibraryProxy.getBooks(), openLibraryId)[0]
                 .toSObject();
 
-        // TODO: Validate book exists in library and all data is correct.
-        // An alternative solution would be just to return an identifier and then [attempt to] find it.
-        // But if/as we are trusting the client, it is more efficient to just let the component return the book.
-
         // TODO: (Re)consider whether how duplicate books will be stored or otherwise handled.
         // Currently any user can save any book, any number of times.
         // This is inefficient and could lead to data integrity issues.

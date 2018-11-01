@@ -11,6 +11,13 @@ public class STCE_BookFinder {
         return INSTANCE;
     }
 
+    // public extractor methods ------------------------------------------------------------
+
+    // I've considered using Interpretter Pattern to reduce code redundancy.
+    // At some later stage (e.g. if there were additional extraction methods), it would probably make sense to do so.
+    // However, currently (2018-11-1), the amount of boiler-plate code, the limited amount of reuse,
+    // and the performance hit for instantiating objects, suggest it would be over-engineered for the present requirements.
+
     public List<STCE_Library.Book> extractMatches(List<STCE_Library.Book> bookList, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
@@ -22,7 +29,6 @@ public class STCE_BookFinder {
         return matchingBookList;
     }
 
-    // TODO: Consider using Interpretter Pattern to reduce code redundancy.
     public List<STCE_Library.Book> extractMatchesById(List<STCE_Library.Book> bookList, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
@@ -34,6 +40,8 @@ public class STCE_BookFinder {
         return matchingBookList;
     }
 
+    // private match methods ------------------------------------------------------------
+
     private Boolean hasMatchingAnything(STCE_Library.Book book, String searchTerm) {
         return this.hasMatchingTitle(book, searchTerm)
                 || this.hasMatchingAuthor(book, searchTerm)
@@ -41,11 +49,11 @@ public class STCE_BookFinder {
     }
 
     private Boolean hasMatchingTitle(STCE_Library.Book book, String searchTerm) {
-        return this.nonBlankContains(book.title, searchTerm);
+        return this.nonBlankCaseInsensitiveContains(book.title, searchTerm);
     }
 
     private Boolean hasMatchingAuthor(STCE_Library.Book book, String searchTerm) {
-        return this.nonBlankContains(book.by_statement, searchTerm)
+        return this.nonBlankCaseInsensitiveContains(book.by_statement, searchTerm)
                 || this.hasMatchingAuthor(book.authors, searchTerm);
     }
 
@@ -55,7 +63,7 @@ public class STCE_BookFinder {
         }
 
         for(STCE_Library.Subject_places author : authorList) {
-            if (this.nonBlankContains(author.name, searchTerm)) {
+            if (this.nonBlankCaseInsensitiveContains(author.name, searchTerm)) {
                 return true;
             }
         }
@@ -76,14 +84,14 @@ public class STCE_BookFinder {
         }
 
         for(String openLibraryId : openLibraryIdList) {
-            if (this.nonBlankContains(openLibraryId, searchTerm)) {
+            if (this.nonBlankCaseInsensitiveContains(openLibraryId, searchTerm)) {
                 return true;
             }
         }
         return false;
     }
 
-    private Boolean nonBlankContains(String target, String searchTerm) {
+    private Boolean nonBlankCaseInsensitiveContains(String target, String searchTerm) {
         return !String.isBlank(target)
                 && target.toLowerCase().contains(searchTerm);
     }
