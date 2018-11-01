@@ -50,11 +50,6 @@ public class XFTY_DummyUserFactoryOutlet implements XFTY_DummySObjectFactoryOutl
 	    	XFTY_InsertModeEnum insertMode, 
 	    	XFTY_InsertInclusivityEnum inclusivity
 	    ) {
-		System.debug('######### MASTER_TEMPLATE: ' + MASTER_TEMPLATE);	    	
-		System.debug('######### templateSObjectList: ' + templateSObjectList);	    	
-		System.debug('######### insertMode: ' + insertMode);	    	
-		System.debug('######### inclusivity: ' + inclusivity);	    	
-	    	
     	return XFTY_DummySObjectFactory.createBundle(MASTER_TEMPLATE, templateSObjectList, insertMode, inclusivity);
     }
     
