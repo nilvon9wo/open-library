@@ -18,7 +18,12 @@ window.$LightningPromiseHelper = (function(){
             action.setCallback(this, (response) => {
                 hideSpinner(component);
                 if (response.getState() === 'SUCCESS') {
-                    resolve(response.getReturnValue())
+                    const body = response.getReturnValue();
+                    if (body && body.errors) {
+                        reject(body.errors);
+                    } else {
+                        resolve(body);
+                    }
                 }
                 else {
                     const errors = response.getError();
