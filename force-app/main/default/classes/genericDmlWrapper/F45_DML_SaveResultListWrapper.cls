@@ -6,10 +6,6 @@ public class F45_DML_SaveResultListWrapper implements F45_DML_ResultListWrapperI
         this.saveResultList = saveResultList;
     }
 
-    @TestVisible
-    private F45_DML_SaveResultListWrapper() {
-    }
-    
     public List<F45_DML_SaveResultWrapper> getResultWrapperList() {
         if (this.resultWrapperList == null) {
             this.resultWrapperList = new List<F45_DML_SaveResultWrapper>();
