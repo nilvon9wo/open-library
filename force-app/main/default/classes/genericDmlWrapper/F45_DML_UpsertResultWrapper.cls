@@ -3,9 +3,8 @@ public class F45_DML_UpsertResultWrapper implements F45_DML_ResultWrapperIntf {
 	@TestVisible private Id id;
 	@TestVisible private Boolean wasSuccess;
 	@TestVisible private Boolean wasCreated;
-	@TestVisible private List<F45_DML_DatabaseErrorWrapper> errorList; 
-	
-    public F45_DML_UpsertResultWrapper(Database.UpsertResult result) {
+
+	public F45_DML_UpsertResultWrapper(Database.UpsertResult result) {
 		this.result = result;
     	this.id = result.id;
     	this.wasCreated = result.isCreated();
@@ -28,10 +27,17 @@ public class F45_DML_UpsertResultWrapper implements F45_DML_ResultWrapperIntf {
     	return this.wasSuccess;
 	}
 
-	public List<F45_DML_DatabaseErrorWrapper> getErrorList() {
-		if (this.errorList == null) {
-			this.errorList = (new F45_DML_DatabaseErrorRewrapper()).convert(result.errors);
+	@TestVisible public List<F45_DML_DatabaseErrorWrapper> errorList {
+		get {
+			if (this.errorList == null) {
+				this.errorList = (new F45_DML_DatabaseErrorRewrapper()).convert(result.errors);
+			}
+			return this.errorList;
 		}
+		private set;
+	}
+
+	public List<F45_DML_DatabaseErrorWrapper> getErrorList() {
 		return this.errorList;
 	}
 }
