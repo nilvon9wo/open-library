@@ -5,7 +5,7 @@ public class XFTY_DummySObjectSupplier {
 	private static final Boolean NO_CONFLICT = true;
 	
 	public XFTY_DummySObjectSupplier(SObjectType sObjectType) {
-		if (SObjectType == null) {
+		if (sObjectType == null) {
 			throw new SanityException('It is required to specify an SObjectType to request supplies!');
 		}
 		this.sObjectType = sObjectType;
@@ -21,7 +21,7 @@ public class XFTY_DummySObjectSupplier {
 		get {
 			if (this.factoryOutlet == null) {
 				if (this.sObjectType == null) {
-					throw new IndeterminateSObjectTypeException('SObjectType must be set before retreiving its factory.');
+					throw new IndeterminateSObjectTypeException('SObjectType must be set before retrieving its factory.');
 				}
 				this.factoryOutlet = XFTY_DummySObjectFactoryOutletLookup.get(this.sObjectType);
 			}
@@ -109,7 +109,7 @@ public class XFTY_DummySObjectSupplier {
 		
 		// Factory requires at least one instance of SObject to merge values from master template.
 		List<SObject> templateList = (this.overrideTemplateList == null || this.overrideTemplateList.isEmpty())
-			? new List<SObject>{this.SObjectType.newSObject()} 
+			? new List<SObject>{this.sObjectType.newSObject()}
 			: this.overrideTemplateList;
 
 		// 			
