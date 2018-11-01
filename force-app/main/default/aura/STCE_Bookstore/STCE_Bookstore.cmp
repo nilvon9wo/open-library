@@ -1,4 +1,4 @@
-<aura:component controller="STCE_BooklistAuraCtrl" implements="flexipage:availableForAllPageTypes" >
+<aura:component controller="STCE_BookstoreAuraCtrl" implements="flexipage:availableForAllPageTypes" >
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
                   afterScriptsLoaded="{!c.doInit}"
     />
