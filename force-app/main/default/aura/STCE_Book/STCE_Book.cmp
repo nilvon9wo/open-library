@@ -13,7 +13,7 @@
                 <img src="{!v.book.cover.medium}" />
             </div>
 
-            <footer class="slds-card__footer slds-text-align_left">
+            <footer class="slds-card__footer slds-text-align_left borders_none">
                 <p class="slds-text-body_regular">{!v.book.by_statement}</p>
                 <!-- {!v.book.identifiers.openlibrary[0]} -->
                 <lightning:button label="Buy!" />

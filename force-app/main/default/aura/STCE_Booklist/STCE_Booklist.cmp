@@ -3,7 +3,7 @@
 
     <div class="slds-grid slds-gutters slds-wrap">
         <aura:iteration items="{!v.booklist}" var="book" >
-            <div class="slds-col slds-size_1-of-3">
+            <div class="slds-col slds-size_1-of-3 slds-p-bottom_xx-large">
                 <span>
                     <c:STCE_Book book="{!book}"/>
                 </span>
