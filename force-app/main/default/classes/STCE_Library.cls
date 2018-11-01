@@ -32,6 +32,13 @@ public class STCE_Library {
         public List<Subject_places> subject_times;
         public List<Excerpts> excerpts;
         public List<Ebooks> ebooks;
+
+        public Book__c toSObject() {
+            return new Book__c(
+                    Name = this.title,
+                    Author__c = this.by_statement
+            );
+        }
     }
 
     public class Identifiers {
