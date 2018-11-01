@@ -1,4 +1,4 @@
-public class F45_DML_DatabaseErrorHelper {
+public class F45_DML_DatabaseErrorRewrapper {
     public List<F45_DML_DatabaseErrorWrapper> convert(List<Database.Error> errorList) {
     	List<F45_DML_DatabaseErrorWrapper> wrapperList = new List<F45_DML_DatabaseErrorWrapper>();
     	if (errorList != null) {

@@ -24,7 +24,7 @@ public class F45_DML_DeleteResultWrapper implements F45_DML_ResultWrapperIntf {
 	
 	public List<F45_DML_DatabaseErrorWrapper> getErrorList() {
         if (this.errorList == null) {
-            this.errorList = (new F45_DML_DatabaseErrorHelper()).convert(result.errors);
+            this.errorList = (new F45_DML_DatabaseErrorRewrapper()).convert(result.errors);
         }
 		return this.errorList;
 	}

@@ -1,7 +1,7 @@
 @IsTest
 public class F45_DML_DatabaseErrorHelperIntTest {
 	private static final User TEST_RUNNER = XFTY_DummyUserFactoryOutlet.TEST_ADMIN_USER;
-	private static final F45_DML_DatabaseErrorHelper HELPER_UNDER_TEST = new F45_DML_DatabaseErrorHelper();
+	private static final F45_DML_DatabaseErrorRewrapper HELPER_UNDER_TEST = new F45_DML_DatabaseErrorRewrapper();
 
 	@IsTest public static void testConvertShouldReturnAppropriateList() {
 		// Arrange
