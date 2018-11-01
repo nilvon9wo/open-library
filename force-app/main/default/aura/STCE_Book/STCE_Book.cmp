@@ -1,4 +1,5 @@
-<aura:component>
+<aura:component controller="STCE_BookAuraCtrl">
+    <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"/>
     <aura:attribute access="public" name="book" type="STCE_Library.Book" />
 
     <lightning:card>
@@ -15,8 +16,7 @@
 
             <footer class="slds-card__footer slds-text-align_left borders_none">
                 <p class="slds-text-body_regular">{!v.book.by_statement}</p>
-                <!-- {!v.book.identifiers.openlibrary[0]} -->
-                <lightning:button label="Buy!" />
+                <lightning:button label="Buy!" onclick="{!c.buy}" />
             </footer>
         </article>
     </lightning:card>
