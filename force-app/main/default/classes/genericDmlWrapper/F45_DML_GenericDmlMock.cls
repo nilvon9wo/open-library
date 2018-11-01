@@ -1,5 +1,5 @@
 @IsTest
-public class F45_DML_GenericDmlMock extends F45_DML_GenericDml {
+public class F45_DML_GenericDmlMock extends F45_DML_GenericDml { 
 	// These need to be lists in case there are multiple DML operations during your test.
 	// Otherwise, only the last operation would be verifiable.
 	public List<List<SObject>> insertedSObjectListList = new List<List<SObject>>();
@@ -46,7 +46,7 @@ public class F45_DML_GenericDmlMock extends F45_DML_GenericDml {
     
     public override F45_DML_DeleteResultListWrapper doDelete(List<SObject> objectList, Boolean isAllOrNone) {
     	if (objectList != null && !objectList.isEmpty()) {
-    		this.deletedSObjectListList.add(objectList);
+    		this.deletedSObjectListList.add(objectList); 
     	}
    		this.deleteWasAllOrNoneList.add(isAllOrNone);
    		return (F45_DML_DeleteResultListWrapper) this.getNextResultList();
