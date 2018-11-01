@@ -10,11 +10,11 @@ window.$LightningPromiseHelper = (function(){
     const hideSpinner = alterSpinner('addClass');
 
     const ServerApexPromise = (component, serverMethodName, serverMethodParams = {}) => {
+        showSpinner(component);
         const action = component.get('c.' + serverMethodName);
         action.setParams(serverMethodParams);
 
         return new Promise((resolve, reject) => {
-            showSpinner(component);
             action.setCallback(this, (response) => {
                 hideSpinner(component);
                 if (response.getState() === 'SUCCESS') {
