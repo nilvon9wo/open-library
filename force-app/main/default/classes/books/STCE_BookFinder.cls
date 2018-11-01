@@ -11,13 +11,14 @@ public class STCE_BookFinder {
         return INSTANCE;
     }
 
+    private static final String OPEN_LIBRARY_ID_PREFIX = 'OLID:';
+
     // public extractor methods ------------------------------------------------------------
 
-    // I've considered using Interpretter Pattern to reduce code redundancy.
-    // At some later stage (e.g. if there were additional extraction methods), it would probably make sense to do so.
-    // However, currently (2018-11-1), the amount of boiler-plate code, the limited amount of reuse,
-    // and the performance hit for instantiating objects, suggest it would be over-engineered for the present requirements.
-
+    // An alternative solution would be to pass in Map<String, STCE_Library.Book> booksByPrefixedOlidMap
+    // instead of List<STCE_Library.Book> bookList, in which case we could check the keys for the openLibraryId.
+    // While this would reduce iteration over the for loop for some queries, it would be worse for the many
+    // queries for which the search term won't be the openLibraryId.
     public List<STCE_Library.Book> extractMatches(List<STCE_Library.Book> bookList, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
@@ -29,7 +30,20 @@ public class STCE_BookFinder {
         return matchingBookList;
     }
 
-    public List<STCE_Library.Book> extractMatchesById(List<STCE_Library.Book> bookList, String searchTerm) {
+    public STCE_Library.Book extractMatchesById(
+            Map<String, STCE_Library.Book> booksByPrefixedOlidMap, String openLibraryId
+        ) {
+            String prefixedOlid = OPEN_LIBRARY_ID_PREFIX + openLibraryId;
+            return booksByPrefixedOlidMap.keySet().contains(prefixedOlid)
+                    ? booksByPrefixedOlidMap.get(prefixedOlid)
+                    : this.extractMatchesById(booksByPrefixedOlidMap.values(), openLibraryId)[0];
+    }
+
+    // I've considered using Interpretter Pattern to reduce code redundancy (see extractMatches).
+    // At some later stage (e.g. if there were additional extraction methods), it would probably make sense to do so.
+    // However, currently (2018-11-1), the amount of boiler-plate code, the limited amount of reuse, and
+    // the performance hit for instantiating objects, suggest it would be over-engineered for the present requirements.
+    private List<STCE_Library.Book> extractMatchesById(List<STCE_Library.Book> bookList, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
         for (STCE_Library.Book book : bookList) {
