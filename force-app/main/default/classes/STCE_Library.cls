@@ -36,7 +36,7 @@ public class STCE_Library {
         public Book__c toSObject() {
             return new Book__c(
                     Name = this.title,
-                    Author__c = this.by_statement
+                    Author__c = this.authors[0].name
             );
         }
     }
