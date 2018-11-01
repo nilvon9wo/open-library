@@ -20,7 +20,7 @@ public class STCE_BookstoreAuraCtrl {
     }
 
     private List<STCE_Library.Book> getBookList(String searchTerm) {
-        List<STCE_Library.Book> bookList = this.openLibraryProxy.getBooks();
+        List<STCE_Library.Book> bookList = this.openLibraryProxy.getBooks().values();
         return (String.isBlank(searchTerm))
                 ? bookList
                 : this.bookFinder.extractMatches(bookList, searchTerm);

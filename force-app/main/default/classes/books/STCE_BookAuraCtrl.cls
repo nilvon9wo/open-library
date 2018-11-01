@@ -23,9 +23,13 @@ public class STCE_BookAuraCtrl {
     }
 
     private STCE_BookSaveResult save(String openLibraryId) {
-        Book__c book = this.bookFinder
-                .extractMatchesById(this.openLibraryProxy.getBooks(), openLibraryId)[0]
-                .toSObject();
+        Map<String, STCE_Library.Book> booksByPrefixedOlidMap = this.openLibraryProxy.getBooks();
+        String prefixedOlid = 'OLID:' + openLibraryId;
+        STCE_Library.Book libraryBook = booksByPrefixedOlidMap.keySet().contains(prefixedOlid)
+                ? booksByPrefixedOlidMap.get(prefixedOlid)
+                : this.bookFinder.extractMatchesById(booksByPrefixedOlidMap.values(), openLibraryId)[0];
+
+        Book__c book = libraryBook.toSObject();
 
         // TODO: (Re)consider whether how duplicate books will be stored or otherwise handled.
         // Currently any user can save any book, any number of times.
