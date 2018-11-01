@@ -76,14 +76,14 @@ public class XFTY_DummyUserFactoryOutlet implements XFTY_DummySObjectFactoryOutl
 	private static Map<String, Id> createProfileIdByProfileNameMap() {
 		Set<String> profileNameSet = new Set<String>{SYSTEM_ADMIN};
 		List<Profile> profileList = [
-			SELECT id, name
+			SELECT Id, Name
 			FROM Profile
-			WHERE name IN :profileNameSet
+			WHERE Name IN :profileNameSet
 		]; 
 		
 		Map<String, Id> profileIdByProfileNameMap = new Map<String, Id>();
 		for (Profile profile : profileList) {
-			profileIdByProfileNameMap.put(profile.name, profile.id);
+			profileIdByProfileNameMap.put(profile.Name, profile.Id);
 		}
 		return profileIdByProfileNameMap;
 	}
@@ -91,14 +91,14 @@ public class XFTY_DummyUserFactoryOutlet implements XFTY_DummySObjectFactoryOutl
 	private static Map<String, Id> createUserRoleIdByUserRoleNameMap() {
 		Set<String> userroleNameSet = new Set<String>{CEO};
 		List<UserRole> userRoleList = [
-			SELECT id, name
+			SELECT Id, Name
 			FROM UserRole
-			WHERE name IN :userroleNameSet
+			WHERE Name IN :userroleNameSet
 		]; 
 		
 		Map<String, Id> userRoleIdByUserRoleNameMap = new Map<String, Id>();
 		for (UserRole userRole : userRoleList) { 
-			userRoleIdByUserRoleNameMap.put(userRole.name, userRole.id);
+			userRoleIdByUserRoleNameMap.put(userRole.Name, userRole.Id);
 		}
 		return userRoleIdByUserRoleNameMap;
 	}

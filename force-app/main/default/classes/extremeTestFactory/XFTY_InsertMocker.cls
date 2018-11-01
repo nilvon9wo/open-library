@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class XFTY_InsertMocker {
 	private static final Integer LENGTH_OF_SFDC_ID = 15;
 	private static final String ID_CORE = '3E000000nPxz'; 
@@ -17,7 +17,7 @@ public class XFTY_InsertMocker {
     	String prefix = sObjectType.getDescribe().getKeyPrefix();
     	
         String uniquifier = String.valueOf(++fakeCount);
-        sObj.id = (Id) (prefix + ID_CORE.left(LENGTH_OF_SFDC_ID - 3 - uniquifier.length()) + uniquifier);
+        sObj.Id = (Id) (prefix + ID_CORE.left(LENGTH_OF_SFDC_ID - 3 - uniquifier.length()) + uniquifier);
         return sObj; 
     }
 }
