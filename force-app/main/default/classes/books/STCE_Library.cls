@@ -36,7 +36,9 @@ public class STCE_Library {
         public Book__c toSObject() {
             return new Book__c(
                     Name = this.title,
-                    Author__c = this.authors[0].name
+                    Author__c = (this.authors != null && !this.authors.isEmpty())
+                            ? this.authors[0].name
+                            : null
             );
         }
     }
