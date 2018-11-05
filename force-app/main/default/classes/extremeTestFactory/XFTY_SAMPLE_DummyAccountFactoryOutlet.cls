@@ -1,5 +1,5 @@
 @IsTest
-public class SAMPLE_DummyAccountFactoryOutlet implements XFTY_DummySObjectFactoryOutletIntf {
+public class XFTY_SAMPLE_DummyAccountFactoryOutlet implements XFTY_DummySObjectFactoryOutletIntf {
     public static final String DEFAULT_NAME_PREFIX = 'Test Account Name';
 
     private static final SObjectField PRIMARY_TARGET_FIELD = Account.Id;
