@@ -2,6 +2,8 @@
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"/>
     <aura:attribute access="public" name="book" type="STCE_Library.Book" />
 
+    <lightning:spinner aura:id="spinner" class="slds-hide"/>
+
     <lightning:card>
         <article class="slds-card slds-text-align_left">
             <div class="slds-card__header slds-grid">
