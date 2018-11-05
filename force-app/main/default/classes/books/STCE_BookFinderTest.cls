@@ -72,14 +72,14 @@ public class STCE_BookFinderTest {
                 TEST_OLID
         };
         Map<String, STCE_Library.Book> testBooksByPrefixedOlidMap = new Map<String, STCE_Library.Book>{
-                STCE_BookFinder.OPEN_LIBRARY_ID_PREFIX + TEST_OLID_LOWERCASE => TEST_BOOK
+                STCE_BookFinder.OPEN_LIBRARY_ID_PREFIX + TEST_OLID => TEST_BOOK
         };
 
         // Act
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID_LOWERCASE);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
         }
         Test.stopTest();
 
@@ -101,7 +101,7 @@ public class STCE_BookFinderTest {
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID_LOWERCASE);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
         }
         Test.stopTest();
 
@@ -123,7 +123,7 @@ public class STCE_BookFinderTest {
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID_LOWERCASE);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
         }
         Test.stopTest();
 
