@@ -20,8 +20,7 @@ public virtual class STCE_BookFinder {
     // instead of List<STCE_Library.Book> bookList, in which case we could check the keys for the openLibraryId.
     // While this would reduce iteration over the for loop for some queries, it would be worse for the many
     // queries for which the search term won't be the openLibraryId.
-    @TestVisible
-    public List<STCE_Library.Book> extractMatches(List<STCE_Library.Book> bookList, String searchTerm) {
+    public virtual List<STCE_Library.Book> extractMatches(List<STCE_Library.Book> bookList, String searchTerm) {
         String lowerCaseSearchTerm = searchTerm.toLowerCase();
         List<STCE_Library.Book> matchingBookList = new List<STCE_Library.Book>();
         for (STCE_Library.Book book : bookList) {

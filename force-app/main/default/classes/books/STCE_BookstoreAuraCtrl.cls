@@ -2,6 +2,7 @@ public class STCE_BookstoreAuraCtrl {
     private STCE_BookFinder bookFinder;
     private STCE_OpenLibraryProxy openLibraryProxy;
 
+    @TestVisible
     private STCE_BookstoreAuraCtrl(
             STCE_BookFinder bookFinder,
             STCE_OpenLibraryProxy openLibraryProxy
@@ -19,6 +20,7 @@ public class STCE_BookstoreAuraCtrl {
         return (new STCE_BookstoreAuraCtrl()).getBookList(searchTerm);
     }
 
+    @TestVisible
     private List<STCE_Library.Book> getBookList(String searchTerm) {
         List<STCE_Library.Book> bookList = this.openLibraryProxy.getBooks().values();
         return (String.isBlank(searchTerm))
