@@ -1,5 +1,5 @@
 @IsTest
-public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
+public class XFTY_SMPL_DummyContactFactoryOutletTest {
     private static final User TEST_ADMIN = XFTY_DummyUserFactoryOutlet.TEST_ADMIN_USER;
     private static final String TEST_CONTACT_FIRST_NAME = 'Fred';
 
@@ -11,7 +11,7 @@ public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
         XFTY_DummySObjectBundle resultBundle;
         Test.startTest();
         System.runAs(TEST_ADMIN) {
-            resultBundle = (new XFTY_SAMPLE_DummyContactFactoryOutlet()).createBundle(
+            resultBundle = (new XFTY_SMPL_DummyContactFactoryOutlet()).createBundle(
                     templateContactList,
                     XFTY_InsertModeEnum.NOW,
                     XFTY_InsertInclusivityEnum.NONE
@@ -37,7 +37,7 @@ public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
         XFTY_DummySObjectBundle resultBundle;
         Test.startTest();
         System.runAs(TEST_ADMIN) {
-            resultBundle = (new XFTY_SAMPLE_DummyContactFactoryOutlet()).createBundle(
+            resultBundle = (new XFTY_SMPL_DummyContactFactoryOutlet()).createBundle(
                     templateContactList,
                     XFTY_InsertModeEnum.NOW,
                     XFTY_InsertInclusivityEnum.ALL
@@ -70,7 +70,7 @@ public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
         XFTY_DummySObjectBundle resultBundle;
         Test.startTest();
         System.runAs(TEST_ADMIN) {
-            resultBundle = (new XFTY_SAMPLE_DummyContactFactoryOutlet()).createBundle(
+            resultBundle = (new XFTY_SMPL_DummyContactFactoryOutlet()).createBundle(
                     templateContactList,
                     XFTY_InsertModeEnum.MOCK,
                     XFTY_InsertInclusivityEnum.ALL
@@ -114,8 +114,8 @@ public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
 
         Account resultAccount = resultAccountList[0];
         System.assertNotEquals(null, resultAccount.Id);
-        System.assert(resultAccount.Name.contains(XFTY_SAMPLE_DummyAccountFactoryOutlet.DEFAULT_NAME_PREFIX));
-        System.assertEquals(resultAccount.Description, XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_ACCOUNT_DESCRIPTION);
+        System.assert(resultAccount.Name.contains(XFTY_SMPL_DummyAccountFactoryOutlet.DEFAULT_NAME_PREFIX));
+        System.assertEquals(resultAccount.Description, XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_ACCOUNT_DESCRIPTION);
     }
 
     private static void assertContactsCreated(XFTY_DummySObjectBundle resultBundle) {
@@ -125,7 +125,7 @@ public class XFTY_SAMPLE_DummyContactFactoryOutletTests {
         Contact resultContact = resultContactList[0];
         System.assertNotEquals(null, resultContact.Id);
         System.assertEquals(TEST_CONTACT_FIRST_NAME, resultContact.FirstName);
-        System.assert(resultContact.LastName.contains(XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
+        System.assert(resultContact.LastName.contains(XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
     }
 
 

@@ -139,8 +139,8 @@ public class XFTY_DummySObjectSupplierTests {
 
         // Assert
         System.assertNotEquals(null, resultContact);
-        System.assert(resultContact.FirstName.contains(XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_FIRST_NAME_PREFIX));
-        System.assert(resultContact.LastName.contains(XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
+        System.assert(resultContact.FirstName.contains(XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_FIRST_NAME_PREFIX));
+        System.assert(resultContact.LastName.contains(XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
     }
 
     @IsTest public static void testSupplyShouldThrowFriendlyExceptionWhenNoSObjectTypeProvided() {
@@ -181,8 +181,8 @@ public class XFTY_DummySObjectSupplierTests {
 
         Account resultAccount = resultAccountList[0];
         System.assertNotEquals(null, resultAccount.Id);
-        System.assert(resultAccount.Name.contains(XFTY_SAMPLE_DummyAccountFactoryOutlet.DEFAULT_NAME_PREFIX));
-        System.assertEquals(resultAccount.Description, XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_ACCOUNT_DESCRIPTION);
+        System.assert(resultAccount.Name.contains(XFTY_SMPL_DummyAccountFactoryOutlet.DEFAULT_NAME_PREFIX));
+        System.assertEquals(resultAccount.Description, XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_ACCOUNT_DESCRIPTION);
     }
 
     private static void assertContactsCreated(XFTY_DummySObjectBundle resultBundle) {
@@ -194,7 +194,7 @@ public class XFTY_DummySObjectSupplierTests {
     private static void assertContactCreated(Contact resultContact) {
         System.assertNotEquals(null, resultContact.Id);
         System.assertEquals(TEST_CONTACT_FIRST_NAME, resultContact.FirstName);
-        System.assert(resultContact.LastName.contains(XFTY_SAMPLE_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
+        System.assert(resultContact.LastName.contains(XFTY_SMPL_DummyContactFactoryOutlet.DEFAULT_LAST_NAME_PREFIX));
     }
 
 

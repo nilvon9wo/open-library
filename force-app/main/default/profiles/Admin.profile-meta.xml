@@ -101,11 +101,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>XFTY_SAMPLE_DummyAccountFactoryOutlet</apexClass>
+        <apexClass>XFTY_SMPL_DummyAccountFactoryOutlet</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>XFTY_SAMPLE_DummyContactFactoryOutlet</apexClass>
+        <apexClass>XFTY_SMPL_DummyContactFactoryOutlet</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
