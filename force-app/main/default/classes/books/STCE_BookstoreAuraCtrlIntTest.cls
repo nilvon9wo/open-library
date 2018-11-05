@@ -51,7 +51,7 @@ public class STCE_BookstoreAuraCtrlIntTest {
         List<STCE_Library.Book> resultList;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resultList = CONTROLLER_UNDER_TEST.getBookList(testSearchTerm);
+            resultList = STCE_BookstoreAuraCtrl.getBooks(testSearchTerm);
         }
         Test.stopTest();
 
