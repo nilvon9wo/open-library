@@ -2,8 +2,6 @@
 public class STCE_BookstoreAuraCtrlIntTest {
     private static final User TEST_RUNNER = XFTY_DummyUserFactoryOutlet.TEST_ADMIN_USER;
 
-    private static final STCE_BookstoreAuraCtrl CONTROLLER_UNDER_TEST = new STCE_BookstoreAuraCtrl();
-
     private static final String TARGET_OPEN_LIBRARY_ID = 'OL24364628M';
     private static final String TARGET_TITLE = 'Tail of Two Cities';
     private static final String TARGET_AUTHOR = 'Charles Dickens';

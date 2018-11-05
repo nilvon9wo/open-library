@@ -7,7 +7,7 @@ public class F45_DML_UndeleteResultListWrapperIntTest {
 		Account testAccount = (Account) (new XFTY_DummySObjectSupplier(Account.SObjectType))
 				.setInsertMode(XFTY_InsertModeEnum.NOW)
 				.supply();
-		Id testAccountId = testAccount.id;
+		Id testAccountId = testAccount.Id;
 		delete testAccount;
 		Boolean notAllOrNone = false;
 		Database.UndeleteResult testUndeleteResult = Database.undelete(testAccountId, notAllOrNone); 
