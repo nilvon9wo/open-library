@@ -20,4 +20,8 @@
         <tab>Book__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <tabSettings>
+        <tab>Bookstore</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
