@@ -3,6 +3,7 @@ public class STCE_BookAuraCtrl {
     private STCE_BookFinder bookFinder;
     private STCE_OpenLibraryProxy openLibraryProxy;
 
+    @TestVisible
     private STCE_BookAuraCtrl(
             F45_DML_GenericDml genericDml,
             STCE_BookFinder bookFinder,
@@ -22,6 +23,7 @@ public class STCE_BookAuraCtrl {
         return (new STCE_BookAuraCtrl()).save(openLibraryId);
     }
 
+    @TestVisible
     private STCE_BookSaveResult save(String openLibraryId) {
         Book__c book = this.bookFinder.extractMatchesById(this.openLibraryProxy.getBooks(), openLibraryId)
                 .toSObject();

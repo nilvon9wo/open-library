@@ -14,8 +14,8 @@ public class STCE_BookFinderTest {
     private static final String TEST_AUTHOR_LOWERCASE = TEST_AUTHOR.toLowerCase();
     private static final String DIFFERENT_AUTHOR = 'John Doe';
 
-    private static final String TEST_OLID = 'OL24364628M';
-    private static final String TEST_OLID_LOWERCASE = TEST_OLID.toLowerCase();
+    private static final String TEST_OPEN_LIBRARY_ID = 'OL24364628M';
+    private static final String TEST_OPEN_LIBRARY_ID_LOWERCASE = TEST_OPEN_LIBRARY_ID.toLowerCase();
     private static final String DIFFERENT_OLID = '32432424';
 
     private static final String TEST_ARBITRARY = 'Whatever';
@@ -30,7 +30,7 @@ public class STCE_BookFinderTest {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
 
@@ -38,7 +38,7 @@ public class STCE_BookFinderTest {
         List<STCE_Library.Book> resultList;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resultList = FINDER_UNDER_TEST.extractMatches(testBookList, TEST_OLID_LOWERCASE);
+            resultList = FINDER_UNDER_TEST.extractMatches(testBookList, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 
@@ -55,7 +55,7 @@ public class STCE_BookFinderTest {
         List<STCE_Library.Book> resultList;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resultList = FINDER_UNDER_TEST.extractMatches(testBookList, TEST_OLID_LOWERCASE);
+            resultList = FINDER_UNDER_TEST.extractMatches(testBookList, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 
@@ -69,17 +69,17 @@ public class STCE_BookFinderTest {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         Map<String, STCE_Library.Book> testBooksByPrefixedOlidMap = new Map<String, STCE_Library.Book>{
-                STCE_BookFinder.OPEN_LIBRARY_ID_PREFIX + TEST_OLID => TEST_BOOK
+                STCE_BookFinder.OPEN_LIBRARY_ID_PREFIX + TEST_OPEN_LIBRARY_ID => TEST_BOOK
         };
 
         // Act
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OPEN_LIBRARY_ID);
         }
         Test.stopTest();
 
@@ -91,7 +91,7 @@ public class STCE_BookFinderTest {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         Map<String, STCE_Library.Book> testBooksByPrefixedOlidMap = new Map<String, STCE_Library.Book>{
                 DIFFERENT_OLID => TEST_BOOK
@@ -101,7 +101,7 @@ public class STCE_BookFinderTest {
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OPEN_LIBRARY_ID);
         }
         Test.stopTest();
 
@@ -123,7 +123,7 @@ public class STCE_BookFinderTest {
         STCE_Library.Book resulBook;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OLID);
+            resulBook = FINDER_UNDER_TEST.extractMatchesById(testBooksByPrefixedOlidMap, TEST_OPEN_LIBRARY_ID);
         }
         Test.stopTest();
 
@@ -135,7 +135,7 @@ public class STCE_BookFinderTest {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
 
@@ -143,7 +143,7 @@ public class STCE_BookFinderTest {
         List<STCE_Library.Book> resultList;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resultList = FINDER_UNDER_TEST.extractMatchesById(testBookList, TEST_OLID_LOWERCASE);
+            resultList = FINDER_UNDER_TEST.extractMatchesById(testBookList, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 
@@ -164,7 +164,7 @@ public class STCE_BookFinderTest {
         List<STCE_Library.Book> resultList;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            resultList = FINDER_UNDER_TEST.extractMatchesById(testBookList, TEST_OLID_LOWERCASE);
+            resultList = FINDER_UNDER_TEST.extractMatchesById(testBookList, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 
@@ -329,7 +329,7 @@ public class STCE_BookFinderTest {
     @IsTest public static void testHasMatchingIdShouldReturnTrueIfBookIdentifiersOpenLibraryListContainsId() {
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         testHasMatchingId(TEST_BOOK, IS_MATCHING);
     }
@@ -347,7 +347,7 @@ public class STCE_BookFinderTest {
         Boolean result;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            result = FINDER_UNDER_TEST.hasMatchingId(testBook, TEST_OLID_LOWERCASE);
+            result = FINDER_UNDER_TEST.hasMatchingId(testBook, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 
@@ -357,7 +357,7 @@ public class STCE_BookFinderTest {
 
     @IsTest public static void testHasMatchingIdShouldReturnTrueIfOpenLibraryListContainsId() {
         List<String> testOpenLibraryIdList = new List<String>{
-                TEST_OLID
+                TEST_OPEN_LIBRARY_ID
         };
         testHasMatchingId(testOpenLibraryIdList, IS_MATCHING);
     }
@@ -387,7 +387,7 @@ public class STCE_BookFinderTest {
         Boolean result;
         Test.startTest();
         System.runAs(TEST_RUNNER) {
-            result = FINDER_UNDER_TEST.hasMatchingId(testOpenLibraryIdList, TEST_OLID_LOWERCASE);
+            result = FINDER_UNDER_TEST.hasMatchingId(testOpenLibraryIdList, TEST_OPEN_LIBRARY_ID_LOWERCASE);
         }
         Test.stopTest();
 

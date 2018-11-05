@@ -1,4 +1,4 @@
-public class STCE_BookFinder {
+public virtual class STCE_BookFinder {
     private STCE_BookFinder() {
     }
 
@@ -31,8 +31,7 @@ public class STCE_BookFinder {
         return matchingBookList;
     }
 
-    @TestVisible
-    public STCE_Library.Book extractMatchesById(
+    public virtual STCE_Library.Book extractMatchesById(
             Map<String, STCE_Library.Book> booksByPrefixedOlidMap, String openLibraryId
     ) {
         String prefixedOlid = OPEN_LIBRARY_ID_PREFIX + openLibraryId;
