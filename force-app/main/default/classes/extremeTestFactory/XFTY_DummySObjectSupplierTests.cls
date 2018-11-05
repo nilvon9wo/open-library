@@ -1,5 +1,5 @@
 @IsTest
-public class SAMPLE_DummySObjectSupplierTests { 
+public class XFTY_DummySObjectSupplierTests {
 	private static final User TEST_ADMIN = XFTY_DummyUserFactoryOutlet.TEST_ADMIN_USER;
 	private static final String TEST_CONTACT_FIRST_NAME = 'Fred';
  
