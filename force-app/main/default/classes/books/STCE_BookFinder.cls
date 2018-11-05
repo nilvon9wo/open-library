@@ -1,5 +1,6 @@
 public virtual class STCE_BookFinder {
-    private STCE_BookFinder() {
+    @TestVisible
+    protected STCE_BookFinder() {
     }
 
     private static STCE_BookFinder INSTANCE;
