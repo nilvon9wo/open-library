@@ -1,6 +1,6 @@
 <aura:component controller="STCE_BookAuraCtrl">
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"/>
-    <aura:attribute access="public" name="book" type="STCE_Library.Book" />
+    <aura:attribute access="public" name="book" type="STCE_Library.Book"/>
 
     <lightning:spinner aura:id="spinner" class="slds-hide"/>
 
@@ -13,12 +13,12 @@
             </div>
 
             <div class="slds-card__body slds-card__body_inner">
-                <img src="{!v.book.cover.medium}" />
+                <img src="{!v.book.cover.medium}"/>
             </div>
 
             <footer class="slds-card__footer slds-text-align_left borders_none">
                 <p class="slds-text-body_regular">{!v.book.by_statement}</p>
-                <lightning:button label="Buy!" onclick="{!c.buy}" />
+                <lightning:button label="Buy!" onclick="{!c.buy}"/>
             </footer>
         </article>
     </lightning:card>

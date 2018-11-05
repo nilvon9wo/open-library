@@ -5,7 +5,7 @@ public class F45_DML_DeleteResultListWrapper implements F45_DML_ResultListWrappe
     public F45_DML_DeleteResultListWrapper(List<Database.DeleteResult> deleteResultList) {
         this.deleteResultList = deleteResultList;
     }
-    
+
     public List<F45_DML_DeleteResultWrapper> getResultWrapperList() {
         if (this.resultWrapperList == null) {
             this.resultWrapperList = new List<F45_DML_DeleteResultWrapper>();
@@ -13,6 +13,6 @@ public class F45_DML_DeleteResultListWrapper implements F45_DML_ResultListWrappe
                 resultWrapperList.add(new F45_DML_DeleteResultWrapper(deleteResult));
             }
         }
-    	return this.resultWrapperList;
+        return this.resultWrapperList;
     }
 }

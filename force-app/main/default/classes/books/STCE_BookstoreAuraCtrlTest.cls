@@ -36,13 +36,15 @@ public class STCE_BookstoreAuraCtrlTest {
     }
 
 
-    @IsTest public static void testGetBookListShouldFilterBooksIfSearchTerm()  {
+    @IsTest public static void testGetBookListShouldFilterBooksIfSearchTerm() {
         // Arrange
 
         MOCK_OPEN_LIBRARY_PROXY.returnedBooksByIdMap = new Map<String, STCE_Library.Book>{
                 TEST_OPEN_LIBRARY_ID => TEST_BOOK
         };
-        MOCK_BOOK_FINDER.returnedBookList = new List<STCE_Library.Book>{TEST_BOOK};
+        MOCK_BOOK_FINDER.returnedBookList = new List<STCE_Library.Book>{
+                TEST_BOOK
+        };
         String testSearchTerm = TEST_AUTHOR;
 
         // Act
@@ -67,7 +69,9 @@ public class STCE_BookstoreAuraCtrlTest {
 
         STCE_Library.Subject_places testLibraryAuthor = new STCE_Library.Subject_places();
         testLibraryAuthor.name = TEST_AUTHOR;
-        TEST_BOOK.authors = new List<STCE_Library.Subject_places>{testLibraryAuthor};
+        TEST_BOOK.authors = new List<STCE_Library.Subject_places>{
+                testLibraryAuthor
+        };
         return TEST_BOOK;
     }
 }

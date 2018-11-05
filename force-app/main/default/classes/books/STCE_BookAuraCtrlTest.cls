@@ -41,7 +41,9 @@ public class STCE_BookAuraCtrlTest {
 
         STCE_Library.Subject_places testLibraryAuthor = new STCE_Library.Subject_places();
         testLibraryAuthor.name = TEST_AUTHOR;
-        TEST_BOOK.authors = new List<STCE_Library.Subject_places>{testLibraryAuthor};
+        TEST_BOOK.authors = new List<STCE_Library.Subject_places>{
+                testLibraryAuthor
+        };
         return TEST_BOOK;
     }
 
@@ -54,7 +56,9 @@ public class STCE_BookAuraCtrlTest {
         F45_DML_SaveResultWrapper testSaveResult = new F45_DML_SaveResultWrapper();
         testSaveResult.wasSuccess = true;
         F45_DML_SaveResultListWrapper testSaveResultList = new F45_DML_SaveResultListWrapper(new List<Database.SaveResult>());
-        testSaveResultList.resultWrapperList = new List<F45_DML_SaveResultWrapper>{testSaveResult};
+        testSaveResultList.resultWrapperList = new List<F45_DML_SaveResultWrapper>{
+                testSaveResult
+        };
         MOCK_GENERIC_DML.dmlResultListWrapperList = new List<F45_DML_ResultListWrapperIntf>{
                 testSaveResultList
         };

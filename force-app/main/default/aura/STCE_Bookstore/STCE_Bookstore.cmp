@@ -1,19 +1,21 @@
-<aura:component controller="STCE_BookstoreAuraCtrl" implements="flexipage:availableForAllPageTypes" >
+<aura:component controller="STCE_BookstoreAuraCtrl" implements="flexipage:availableForAllPageTypes">
     <ltng:require scripts="{!$Resource.AURA_PromiseHelper_JS}"
                   afterScriptsLoaded="{!c.doInit}"
     />
-    <aura:attribute name="query" type="String" />
-    <aura:attribute name="booklist" type="STCE_Library.Book[]" />
+    <aura:attribute name="query" type="String"/>
+    <aura:attribute name="booklist" type="STCE_Library.Book[]"/>
 
     <lightning:spinner aura:id="spinner" class="slds-hide"/>
 
     <div class="bookstore_color-background">
         <div class="slds-m-around_medium ">
-            <lightning:input class="search_textbox" label="Search" type="search" value="{!v.query}" onchange="{!c.doSearch}" />
-            <lightning:button class="search_button" variant="brand" label="Search" title="Search" onclick="{!c.doSearch}"  />
+            <lightning:input class="search_textbox" label="Search" type="search" value="{!v.query}"
+                             onchange="{!c.doSearch}"/>
+            <lightning:button class="search_button" variant="brand" label="Search" title="Search"
+                              onclick="{!c.doSearch}"/>
         </div>
 
-        <br clear="all" />
+        <br clear="all"/>
 
         <div class="slds-m-around_medium">
             <c:STCE_Booklist booklist="{!v.booklist}"/>

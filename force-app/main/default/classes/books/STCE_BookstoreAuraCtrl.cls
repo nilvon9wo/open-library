@@ -11,7 +11,7 @@ public class STCE_BookstoreAuraCtrl {
         this.openLibraryProxy = openLibraryProxy;
     }
 
-    public STCE_BookstoreAuraCtrl(){
+    public STCE_BookstoreAuraCtrl() {
         this(STCE_BookFinder.getInstance(), STCE_OpenLibraryProxy.getInstance());
     }
 

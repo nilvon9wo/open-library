@@ -26,13 +26,15 @@ public class STCE_BookFinderTest {
 
     // extractMatches tests ---------------------------------------------------------------------------------------
 
-    @IsTest public static void testExtractMatchesShouldReturnListOfMatchingBooks()  {
+    @IsTest public static void testExtractMatchesShouldReturnListOfMatchingBooks() {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
                 TEST_OPEN_LIBRARY_ID
         };
-        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
+        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{
+                TEST_BOOK
+        };
 
         // Act
         List<STCE_Library.Book> resultList;
@@ -47,9 +49,11 @@ public class STCE_BookFinderTest {
         System.assertEquals(TEST_BOOK, resultList[0]);
     }
 
-    @IsTest public static void testExtractMatchesShouldReturnEmptyListIfNoMatchingBooks()  {
+    @IsTest public static void testExtractMatchesShouldReturnEmptyListIfNoMatchingBooks() {
         // Arrange
-        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
+        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{
+                TEST_BOOK
+        };
 
         // Act
         List<STCE_Library.Book> resultList;
@@ -131,13 +135,15 @@ public class STCE_BookFinderTest {
         System.assertEquals(null, resulBook);
     }
 
-    @IsTest public static void testExtractMatchesByIdShouldReturnListOfMatchingBooks()   {
+    @IsTest public static void testExtractMatchesByIdShouldReturnListOfMatchingBooks() {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
                 TEST_OPEN_LIBRARY_ID
         };
-        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
+        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{
+                TEST_BOOK
+        };
 
         // Act
         List<STCE_Library.Book> resultList;
@@ -152,13 +158,15 @@ public class STCE_BookFinderTest {
         System.assertEquals(TEST_BOOK, resultList[0]);
     }
 
-    @IsTest public static void testExtractMatchesByIdShouldReturnEmptyListIfNoMatchingBooks()  {
+    @IsTest public static void testExtractMatchesByIdShouldReturnEmptyListIfNoMatchingBooks() {
         // Arrange
         TEST_BOOK.identifiers = new STCE_Library.Identifiers();
         TEST_BOOK.identifiers.openlibrary = new List<String>{
                 DIFFERENT_OLID
         };
-        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{TEST_BOOK};
+        List<STCE_Library.Book> testBookList = new List<STCE_Library.Book>{
+                TEST_BOOK
+        };
 
         // Act
         List<STCE_Library.Book> resultList;

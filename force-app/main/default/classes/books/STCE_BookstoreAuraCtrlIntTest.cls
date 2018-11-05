@@ -12,11 +12,11 @@ public class STCE_BookstoreAuraCtrlIntTest {
 
     private static final String SAMPLE_JSON
             = '{' + createBookJson(TARGET_OPEN_LIBRARY_ID, TARGET_TITLE, TARGET_AUTHOR)
-            + ',' + createBookJson(OTHER_OPEN_LIBRARY_ID, OTHER_TITLE, OTHER_AUTHOR)
-            + '}';
+                    + ',' + createBookJson(OTHER_OPEN_LIBRARY_ID, OTHER_TITLE, OTHER_AUTHOR)
+                    + '}';
 
     private static String createBookJson(String openLibraryId, String title, String author) {
-        return  '"OLID:' + openLibraryId
+        return '"OLID:' + openLibraryId
                 + '":{"publishers":[{"name":"S.H. Goetzel"}],"pagination":"368 p. ;",'
                 + '"identifiers":{"openlibrary":["' + openLibraryId + '"]},'
                 + '"title":"' + title + '",'

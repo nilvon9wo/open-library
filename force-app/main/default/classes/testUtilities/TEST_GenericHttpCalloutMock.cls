@@ -2,7 +2,7 @@
 public class TEST_GenericHttpCalloutMock implements HttpCalloutMock {
     private HttpResponse httpResponse;
 
-    public TEST_GenericHttpCalloutMock(HttpResponse httpResponse){
+    public TEST_GenericHttpCalloutMock(HttpResponse httpResponse) {
         this.httpResponse = httpResponse;
     }
 

@@ -24,7 +24,7 @@ public class STCE_BookSaveResultTest {
         System.assertEquals(null, bookSaveResult.errors);
     }
 
-    @IsTest public static void testConstructorShouldWrapBookAndErrorsWhenSaveFails()  {
+    @IsTest public static void testConstructorShouldWrapBookAndErrorsWhenSaveFails() {
         // Arrange
         Book__c testBook = (Book__c) (new XFTY_DummySObjectSupplier(Book__c.SObjectType))
                 .setInsertMode(XFTY_InsertModeEnum.NEVER)
@@ -34,7 +34,9 @@ public class STCE_BookSaveResultTest {
         testSaveResult.wasSuccess = false;
         F45_DML_DatabaseErrorWrapper testError = new F45_DML_DatabaseErrorWrapper();
         testError.message = 'test message';
-        testSaveResult.errorList = new List<F45_DML_DatabaseErrorWrapper>{testError};
+        testSaveResult.errorList = new List<F45_DML_DatabaseErrorWrapper>{
+                testError
+        };
 
 
         // Act

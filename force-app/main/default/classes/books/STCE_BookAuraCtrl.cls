@@ -14,7 +14,7 @@ public class STCE_BookAuraCtrl {
         this.openLibraryProxy = openLibraryProxy;
     }
 
-    public STCE_BookAuraCtrl(){
+    public STCE_BookAuraCtrl() {
         this(F45_DML_GenericDml.getInstance(), STCE_BookFinder.getInstance(), STCE_OpenLibraryProxy.getInstance());
     }
 
@@ -34,7 +34,9 @@ public class STCE_BookAuraCtrl {
 
         return new STCE_BookSaveResult(
                 book,
-                this.genericDml.doInsert(new List<Book__c>{book}, F45_DML_GenericDml.NOT_ALL_OR_NONE)
+                this.genericDml.doInsert(new List<Book__c>{
+                        book
+                }, F45_DML_GenericDml.NOT_ALL_OR_NONE)
                         .getResultWrapperList()[0]
         );
     }

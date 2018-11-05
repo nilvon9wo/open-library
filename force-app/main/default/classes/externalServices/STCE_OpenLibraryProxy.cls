@@ -21,6 +21,6 @@ public virtual class STCE_OpenLibraryProxy {
         req.setMethod('GET');
 
         String jsonResp = new Http().send(req).getBody();
-        return (Map<String, STCE_Library.Book>)JSON.deserializeStrict(jsonResp, Map<String, STCE_Library.Book>.class);
+        return (Map<String, STCE_Library.Book>) JSON.deserializeStrict(jsonResp, Map<String, STCE_Library.Book>.class);
     }
 }

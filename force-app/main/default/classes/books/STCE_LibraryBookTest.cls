@@ -9,7 +9,9 @@ public class STCE_LibraryBookTest {
 
         STCE_Library.Subject_places testAuthor = new STCE_Library.Subject_places();
         testAuthor.name = 'John Doe';
-        testBook.authors = new List<STCE_Library.Subject_places>{testAuthor};
+        testBook.authors = new List<STCE_Library.Subject_places>{
+                testAuthor
+        };
 
         // Act
         Book__c resultBook;
@@ -43,7 +45,7 @@ public class STCE_LibraryBookTest {
         System.assertEquals(null, resultBook.Author__c);
     }
 
-    @IsTest public static void testToSObjectShouldCreateSObjectWhenNoAuthorList()  {
+    @IsTest public static void testToSObjectShouldCreateSObjectWhenNoAuthorList() {
         // Arrange
         STCE_Library.Book testBook = new STCE_Library.Book();
         testBook.title = 'Sample title';
